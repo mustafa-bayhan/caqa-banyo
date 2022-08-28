@@ -12,7 +12,7 @@ class Ölçüler(models.Model):
     giriş = models.CharField(max_length=200, default="", null= True, blank=False)
     yükseklik = models.CharField(max_length=200, default="", null= True, blank=False)
     def __str__(self):
-        return self.ölçü + '-' + self.giriş + '-' + self.yükseklik
+        return self.ölçü + ' / ' + self.giriş + ' / ' + self.yükseklik
     
     
 class Ürün_model(models.Model):
