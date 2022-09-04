@@ -12,7 +12,7 @@ class Ölçüler(models.Model):
     giriş = models.CharField(max_length=200, default="", null= True, blank=False)
     yükseklik = models.CharField(max_length=200, default="", null= True, blank=False)
     def __str__(self):
-        return self.ölçü + ' / ' + self.giriş + ' / ' + self.yükseklik
+        return self.ölçü + '/' + self.giriş + '/' + self.yükseklik
     
     
 class Ürün_model(models.Model):
@@ -53,7 +53,7 @@ class Ürün (models.Model):
     isim =models.CharField(null= True,blank=False, max_length=200)
     ürün_resmi = models.ImageField(null=True, upload_to='image/')
     kategori= models.ForeignKey(Kategoriler, on_delete= models.CASCADE, related_name='category',null= True, blank=False)
-    alt_kategori= models.ForeignKey(Alt_kategoriler, on_delete= models.CASCADE, related_name='Alt_kategori',null= True, blank=False)
+    alt_kategori= models.ForeignKey(Alt_kategoriler, on_delete= models.CASCADE, related_name='Alt_kategori',null= True, blank=True)
     ürün_modelleri= models.ManyToManyField(Ürün_model, default="", blank=False, related_name='type')
     özellikler = RichTextField(null= True)
     montaj_sekli = models.ForeignKey(Montaj_tipi, on_delete= models.CASCADE, related_name='montaj',null= True, blank=False)
@@ -122,4 +122,13 @@ class Mesajlar(models.Model):
 
     def __str__(self):
         return self.musteri_ismi
-   
+
+class Giris_resimleri(models.Model):
+    
+    resim1 = models.ImageField(null=True, upload_to='image/')
+    resim2 = models.ImageField(null=True, upload_to='image/')
+    resim3 = models.ImageField(null=True, upload_to='image/')
+    logo = models.ImageField(null=True, upload_to='image/')
+
+    def __str__(self):
+        return "Giriş Resimleri"

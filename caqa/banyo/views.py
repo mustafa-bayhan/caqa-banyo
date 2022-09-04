@@ -19,11 +19,17 @@ def home(request):
     context['allproducts']=Ürün.objects.all().distinct()[:4]
     context['allref']=Referanslar.objects.all()
     context['most_sell']=Ürün.objects.all().order_by('-görüntüleme','-id').distinct()[:4]
+    images=Giris_resimleri.objects.all().distinct()
+    if not len(images)==0:
+        context['images']=images[0]
     return render(request,'home.html',context)
 
 def about(request):
     context2=dict()
     query2=request.GET.get('search')
+    images=Giris_resimleri.objects.all().distinct()
+    if not len(images)==0:
+        context2['images']=images[0]
     if query2:
         return HttpResponseRedirect('/products?search={}'.format(query2))
     
@@ -64,7 +70,8 @@ def products(request):
     for product in allproducts:
         cat.append(product.kategori.isim)
         şekil.append(product.montaj_sekli.isim)
-        altcat.append(product.alt_kategori.isim)
+        if product.alt_kategori:
+            altcat.append(product.alt_kategori.isim)
     
     
     for color in Renkler.objects.all():
@@ -110,7 +117,9 @@ def products(request):
     context3['sekil']= set(şekil)
     context3['altcat']= set(altcat)
     context3['allproducts']= allproducts
-        
+    images=Giris_resimleri.objects.all().distinct()
+    if not len(images)==0:
+        context3['images']=images[0] 
     return render(request,'product.html',context3)
 
 def catalog(request):
@@ -121,6 +130,9 @@ def catalog(request):
     katalogs =Katalog.objects.all()
     if len(katalogs)!=0:
         context4['catalog']= katalogs[0]
+    images=Giris_resimleri.objects.all().distinct()
+    if not len(images)==0:
+        context4['images']=images[0]
     return render(request,'catalog.html',context4)
 
 def references(request):
@@ -129,6 +141,9 @@ def references(request):
     if query2:
         return HttpResponseRedirect('/products?search={}'.format(query2))
     context5['allref']=Referanslar.objects.all()
+    images=Giris_resimleri.objects.all().distinct()
+    if not len(images)==0:
+        context5['images']=images[0]
     return render(request,'reference.html',context5)
 
 
@@ -167,13 +182,21 @@ def contact(request):
     b = random.randint(1,100)
     context6['a']=a
     context6['b']=b
+    images=Giris_resimleri.objects.all().distinct()
+    if not len(images)==0:
+        context6['images']=images[0]
     return render(request,'contact.html',context6)
 
 def product_detail(request, slug):
     context7=dict()
+    
     query2=request.GET.get('search')
     if query2:
         return HttpResponseRedirect('/products?search={}'.format(query2))
+    
+    images=Giris_resimleri.objects.all().distinct()
+    if not len(images)==0:
+        context7['images']=images[0]
     the_product=get_object_or_404(Ürün, slug=slug)
     context7['the_product']=the_product
     görüntüleme = the_product.görüntüleme
@@ -193,6 +216,9 @@ def product_detail(request, slug):
 
 def handle_not_found(request, exception):
     context7={}
+    images=Giris_resimleri.objects.all().distinct()
+    if not len(images)==0:
+        context7['images']=images[0]
     query2=request.GET.get('search')
     if query2:
         return HttpResponseRedirect('/products?search={}'.format(query2))

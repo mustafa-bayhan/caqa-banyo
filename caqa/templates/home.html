@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- title of site -->
         <title>CAQA Banyo ve Kabin Sistemleri</title>
-		<link rel="shortcut icon" type="image/icon" href="/media/images/dusakabin/caqa-1.jpg"/>
+		<link rel="shortcut icon" type="image/icon" href="{{images.logo.url}}"/>
         <link rel="stylesheet" href="/static/css/font-awesome.min.css">
 		<link rel="stylesheet" href="/static/css/linearicons.css">
         <link rel="stylesheet" href="/static/css/animate.css">
@@ -66,7 +66,7 @@
 							<div class="container">
 								<div class="welcome-hero-content">
 									<div class="row">
-										<div class="col-sm-7">
+										<div class="col-sm-7" style="background-color: #fffdfa;">
 											<div class="single-welcome-hero">
 												<div class="welcome-hero-txt">
 													<h4>TASARIM</h4>
@@ -87,10 +87,10 @@
 												</div><!--/.welcome-hero-txt-->
 											</div><!--/.single-welcome-hero-->
 										</div><!--/.col-->
-										<div class="col-sm-5">
+										<div class="col-sm-5" style="background-color: #fffdfa;">
 											<div class="single-welcome-hero">
 												<div class="welcome-hero-img">
-													<img src="/media/images/dusakabin/slider1.png" alt="slider image">
+													<img src="{{images.resim1.url}}" alt="slider image">
 												</div><!--/.welcome-hero-txt-->
 											</div><!--/.single-welcome-hero-->
 										</div><!--/.col-->
@@ -106,7 +106,7 @@
 							<div class="container">
 								<div class="welcome-hero-content">
 									<div class="row">
-										<div class="col-sm-7">
+										<div class="col-sm-7" style="background-color: #fffdfa;">
 											<div class="single-welcome-hero">
 												<div class="welcome-hero-txt">
 													<h4>KALİTE</h4>
@@ -128,10 +128,10 @@
 												</div><!--/.welcome-hero-txt-->
 											</div><!--/.single-welcome-hero-->
 										</div><!--/.col-->
-										<div class="col-sm-5">
+										<div class="col-sm-5" style="background-color: #fffdfa;">
 											<div class="single-welcome-hero">
 												<div class="welcome-hero-img">
-													<img src="/media/images/dusakabin/slider2.png" alt="slider image"  >
+													<img src="{{images.resim2.url}}" alt="slider image"  >
 												</div><!--/.welcome-hero-txt-->
 											</div><!--/.single-welcome-hero-->
 										</div><!--/.col-->
@@ -147,7 +147,7 @@
 							<div class="container">
 								<div class="welcome-hero-content">
 									<div class="row">
-										<div class="col-sm-7">
+										<div class="col-sm-7" style="background-color: #fffdfa;">
 											<div class="single-welcome-hero">
 												<div class="welcome-hero-txt">
 													<h4>KONFOR</h4>
@@ -168,10 +168,10 @@
 												</div><!--/.welcome-hero-txt-->
 											</div><!--/.single-welcome-hero-->
 										</div><!--/.col-->
-										<div class="col-sm-5">
+										<div class="col-sm-5" style="background-color: #fffdfa;">
 											<div class="single-welcome-hero">
 												<div class="welcome-hero-img">
-													<img src="/media/images/dusakabin/slider3.png" alt="slider image">
+													<img src="{{images.resim3.url}}" alt="slider image">
 												</div><!--/.welcome-hero-txt-->
 											</div><!--/.single-welcome-hero-->
 										</div><!--/.col-->
@@ -223,9 +223,11 @@
 				                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
 				                    <i class="fa fa-bars" style="margin-top:18px ;margin-left:15px;"></i>
 				                </button>
-				                <a class="navbar-brand" href="/">
-									<img src="/media/images/dusakabin/caqa.png" alt="" width="150px">
-								</a>
+				            <div><a href="https://caqabanyo.com">
+								<img src="{{images.logo.url}}" alt="" width="150px" >
+							</a></div> 
+								
+								
 
 				            </div><!--/.navbar-header-->
 				            <!-- End Header Navigation -->
@@ -345,7 +347,6 @@
 										</div>
 										
 									</div>
-									<h4><a href="/products/{{product.slug}}">{{product.kategori.isim}}</a></h4>
 									<a href="/products/{{product.slug}}"><p class="arrival-product-price">{{product.isim}}</p></a>
 								</div>
 							</div>
@@ -414,7 +415,6 @@
 										</div>
 										
 									</div>
-									<h4><a href="/products/{{product.slug}}">{{product.kategori.isim}}</a></h4>
 									<a href="/products/{{product.slug}}"><p class="arrival-product-price">{{product.isim}}</p></a>
 								</div>
 							</div>
@@ -438,7 +438,7 @@
 		<!-- clients strat -->
 		
 			<div class="container">
-				<section class="logo-section" style="background-color:#f8f9fc; margin-top: 70px; margin-bottom: 50px;">
+				<section class="logo-section" style="background-color:#FFFDFA; margin-top: 70px; margin-bottom: 50px;">
 				
 					<div class="page-center">
 						<div class="logo-inner">
@@ -517,16 +517,16 @@ responsive: [
 				<div class="hm-footer-details">
 					<div class="row">
 						<div class=" col-md-3 col-sm-6 col-xs-12">
-							<a href="https://caqabanyo.com"><img src="/media/images/dusakabin/caqa.png" alt="" width="170px"></a>
+							<a href="https://caqabanyo.com"><img src="{{images.logo.url}}" alt="" width="170px"></a>
 							<br><br>
 							<p>Özgün ve güvenlik önlemleri göz önünde bulundurularak tasarlanmış, A kalite malzemelerle üretilmiş ürünlerimiz için hemen iletişime geçebilirsiniz. Bize bırakın, size düşen hayal edip keyfini sürmek olsun.</p>
 							<br>
 							<div class="footer-sociall" >
-								<a href="#"><i class="fa fa-facebook"></i></a>	
-								<a href="#"><i class="fa fa-instagram"></i></a>
-								<a href="#"><i class="fa fa-linkedin"></i></a>
-								<a href="#"><i class="fa fa-pinterest"></i></a>
-								<a href="#"><i class="fa fa-behance"></i></a>	
+								<a href="https://www.instagram.com/caqabanyoo/"><i class="fa fa-facebook"></i></a>	
+								<a href="https://www.instagram.com/caqabanyoo/"><i class="fa fa-instagram"></i></a>
+								<a href="https://www.instagram.com/caqabanyoo/"><i class="fa fa-linkedin"></i></a>
+								<a href="https://www.instagram.com/caqabanyoo/"><i class="fa fa-pinterest"></i></a>
+								<a href="https://www.instagram.com/caqabanyoo/"><i class="fa fa-behance"></i></a>	
 							</div>
 
 <br><br>
@@ -572,8 +572,8 @@ responsive: [
 								</div><!--/.hm-foot-title-->
 								<div class="hm-foot-menu">
 									<ul>
-										<li><a href="#">Adres: 5/11 Akçaağaç sokak, Siteler, Ankara</a></li><!--/li-->
-										<li><a href="tel:+905322161808">Telefon: 0532 216 18 08</a></li><!--/li-->
+										<li><a href="#">Adres: Ali Ersoy Mah. Reyhan Cad. No:4 Siteler - Altındağ/Ankara</a></li><!--/li-->
+										<li><a href="tel:+905322161808">Telefon: 0312 349 10 50</a></li><!--/li-->
 										<li><a href="mailto: caqabanyo@gmail.com">E-posta: caqabanyo@gmail.com</a></li><!--/li-->
 									</ul><!--/ul-->
 								</div><!--/.hm-foot-menu-->
